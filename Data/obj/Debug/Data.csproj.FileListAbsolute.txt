@@ -1,0 +1,7 @@
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\bin\Debug\Data.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\bin\Debug\Data.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\bin\Debug\Entities.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\bin\Debug\Entities.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\obj\Debug\Data.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Data\obj\Debug\Data.pdb

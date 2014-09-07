@@ -1,0 +1,4 @@
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Entities\bin\Debug\Entities.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Entities\bin\Debug\Entities.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Entities\obj\Debug\Entities.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\Entities\obj\Debug\Entities.pdb

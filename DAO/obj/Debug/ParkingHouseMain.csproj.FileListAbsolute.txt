@@ -1,0 +1,14 @@
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\ParkingHouseMain.exe.config
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\obj\Debug\ParkingHouseMain.csprojResolveAssemblyReference.cache
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\ParkingHouseMain.exe
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\ParkingHouseMain.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\DAO.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Data.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Ninject.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Entities.dll
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\DAO.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Data.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Ninject.xml
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\bin\Debug\Entities.pdb
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\obj\Debug\ParkingHouseMain.exe
+c:\users\ardi\documents\visual studio 2013\Projects\FinestMedia\ParkingHouseMain\ParkingHouseMain\obj\Debug\ParkingHouseMain.pdb
