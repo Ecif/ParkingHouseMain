@@ -22,7 +22,7 @@ namespace DataTests.Bussiness
             };
 
             var servicePayment = new ServicePayment();
-            servicePayment.AddCheck(new Client { DepartureTime = DateTime.Now, EntryTime = DateTime.Now, Id = 66613420},dict );
+            servicePayment.AddCheck(new Client { DepartureTime = DateTime.Now, EntryTime = DateTime.Now, Id = 1},dict );
             Assert.AreEqual(1.0d, dict["clientsCount"]);
         }
 
