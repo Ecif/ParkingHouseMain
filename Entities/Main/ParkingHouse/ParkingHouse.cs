@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Main.ParkingHouse
 {
+    /// <summary>
+    /// ParkingHouse entity. Holds parking spaces list.
+    /// </summary>
     public class ParkingHouse
     {
         public int Size { get; set; }

@@ -10,6 +10,9 @@ using Entities.Main.ParkingHouse;
 
 namespace DAO.Concrete
 {
+    /// <summary>
+    /// Parking house and parking spaces repository
+    /// </summary>
     public class ParkingHouseRepository : IParkingHouse
     {        
         private readonly ParkingSpaces _parkingSpaces;
@@ -21,7 +24,9 @@ namespace DAO.Concrete
             _parkingSpaces = new ParkingSpaces();
             CreateParkingSpots();
         }
-
+        /// <summary>
+        /// Creates default parking spaces list.
+        /// </summary>
         private void CreateParkingSpots()
         {
             const int parkingSpots = 500;
@@ -44,35 +49,51 @@ namespace DAO.Concrete
             var clients = _clientsRepo.GetClients();
             clients.AddCustomers();
         }
-
+        /// <summary>
+        /// Add customer to DB
+        /// </summary>
         public void AddCustomer()
         {
             _clientsRepo.GetClients().AddCustomers();
         }
-
+        /// <summary>
+        /// Remove customer from DB
+        /// </summary>
         public void RemoveCustomer()
         {
             _clientsRepo.GetClients().RemoveCustomers();
         }
-
+        /// <summary>
+        /// Free parking spaces count.
+        /// </summary>
+        /// <returns>Parking spots count.</returns>
         public int GetFreeParkingSpaceCount()
         {
             return _parkingSpaces.ParkingSpacesList.Count(x => x.ClientId == null);
         }
-
+        /// <summary>
+        /// Size of Parking house.
+        /// </summary>
+        /// <returns>Parking house size.</returns>
         public int GetSize()
         {
             var size = ParkingLot.ParkingHouse.Size;
             return size;
         }
-
+        /// <summary>
+        /// Total sum of simulation.
+        /// </summary>
+        /// <returns>Total sum of simulation</returns>
         public double GetTotalSum()
         {
             var statistics = _clientsRepo.GetClients().GetStatistics();
             var remainingSum = _clientsRepo.GetClients().GetPaymentServices().CalculateRemainingSum(_clientsRepo.GetClients().ClientList, _parkingSpaces.ParkingSpacesList);
             return statistics.Where(statistic => !statistic.Key.Equals("clientsCount")).Sum(statistic => statistic.Value) + remainingSum;
         }
-
+        /// <summary>
+        /// Visited client count.
+        /// </summary>
+        /// <returns>Visited client count.</returns>
         public int GetTotalClientsCount()
         {
             var statistics = _clientsRepo.GetClients().GetStatistics();

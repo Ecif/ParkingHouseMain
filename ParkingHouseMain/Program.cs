@@ -15,18 +15,23 @@ namespace ParkingHouseMain
     {
         static void Main(string[] args)
         {
+            
             IClientsRepository clientsRepo = new ClientsRepository();
             IParkingHouse parkingHouseRepo = new ParkingHouseRepository(clientsRepo);
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            while (stopwatch.Elapsed.Seconds < 10)
+
+            //  ------------- SIMULATION DURATION------------------
+            while (stopwatch.Elapsed.Seconds < 10) 
             {
                 Thread.Sleep(500);
                 var freeParkingSpotsCount = parkingHouseRepo.GetFreeParkingSpaceCount();
-                var addTask = new Task(parkingHouseRepo.AddCustomer);                
+                // --- addTask and removeTask execute with different pace
+                var addTask = new Task(parkingHouseRepo.AddCustomer);     //  add randomly generated client         
                 addTask.Start();
                 addTask.Wait(1000);
-                var removeTask = new Task(parkingHouseRepo.RemoveCustomer);
+                var removeTask = new Task(parkingHouseRepo.RemoveCustomer); // remove random client from parking spot
+                // checks if there still is someone to remove from parking house
                 if (parkingHouseRepo.GetSize() > freeParkingSpotsCount)
                 {
                     removeTask.Start();

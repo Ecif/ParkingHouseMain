@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities.Main.Clients
 {
+    /// <summary>
+    /// Client entity. Contains vehicle reference.
+    /// </summary>
     public class Client
     {
         public int ClientId { get; set; }

@@ -11,6 +11,9 @@ using Entities.Main.Vehicles;
 
 namespace DAO.Concrete
 {
+    /// <summary>
+    /// Client repository.
+    /// </summary>
     public class ClientsRepository : IClientsRepository
     {
         private readonly Clients _clients;
@@ -21,6 +24,9 @@ namespace DAO.Concrete
             _clients = new Clients();            
             CreateClientsList();
         }
+        /// <summary>
+        /// Creates default client list.
+        /// </summary>
         public void CreateClientsList()
         {
             for (int i = 0; i < 400; i++)
@@ -37,7 +43,9 @@ namespace DAO.Concrete
             CreateCarsList();
             BindCarsToClients();
         }        
-
+        /// <summary>
+        /// Creates default car list.
+        /// </summary>
         private void CreateCarsList()
         {
             _cars = Cars.CarsList;
@@ -52,6 +60,9 @@ namespace DAO.Concrete
                         });
                 }            
         }
+        /// <summary>
+        /// Bind a car for each client.
+        /// </summary>
         private void BindCarsToClients()
         {
             

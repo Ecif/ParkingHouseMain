@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Entities.Main.ParkingHouse
 {
+    /// <summary>
+    /// Parking space entity. Holds client reference.
+    /// </summary>
     public class ParkingSpace
     {
         public int Id { get; set; }

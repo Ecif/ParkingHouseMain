@@ -10,6 +10,10 @@ using Entities.Main.Clients;
 
 namespace Data.DataSource.DataClients
 {
+    /// <summary>
+    /// Holds reference to bussiness rules classes. 
+    /// Also contains statistics list.
+    /// </summary>
     public class Clients
     {
 
@@ -28,21 +32,31 @@ namespace Data.DataSource.DataClients
             _statistics.Add("regularSum", 0);
             _statistics.Add("clientsCount", 0);
         }
-
+        /// <summary>
+        /// Payment services.
+        /// </summary>
+        /// <returns>Payment services reference</returns>
         public ServicePayment GetPaymentServices()
         {
             return _servicePay;
         }
+        /// <summary>
+        /// Statistics.
+        /// </summary>
+        /// <returns>Statistics reference</returns>
         public Dictionary<string, double> GetStatistics()
         {
             return _statistics;
         }
-
+        /// <summary>
+        /// Adds customers to parking house.
+        /// </summary>
         public void AddCustomers()
         {
-            if (_service.CheckParkingLotSize(this))
+            if (_service.CheckParkingLotSize(this)) // Checks whether parking house is full.
             {
                 var count = ClientList.Count;
+                // Populate parking house with default clients list.
                 if (IsFirstCall)
                 {
                     foreach (var client in ClientList)
@@ -52,10 +66,11 @@ namespace Data.DataSource.DataClients
                             parkingSpace.ClientId = client.ClientId;
                     }
                     IsFirstCall = false;
-
                 }
                 else
                 {
+                    // Creates new client every time client adding is called.
+                    // Adds random vehicle Id to Client.
                     var rand = new Random();
                     var vehicleId = rand.Next(1, Cars.CarsList.Count+1);
                     var newClient = new Client
@@ -66,34 +81,44 @@ namespace Data.DataSource.DataClients
                         VehicleId = vehicleId,
                         DepartureTime = null
                     };
-                    if (_service.CheckCarSize(newClient))
+                    if (_service.CheckCarSize(newClient)) // Checks whether car fits into parking house.
                     {
                         if (newClient.HasContract)
-                            _service.AddPremium(newClient);
+                            _service.AddPremium(newClient); // Add new premium customer.
                         else
-                            _service.AddClient(newClient);
+                            _service.AddClient(newClient); // Add new regular customer.
                     }
                     else
+                    {
+                        Console.WriteLine();
+                        Console.Write("Client tried to enter ------ ");
                         Console.WriteLine("The vehicle does not fit.");
+                    }
+                        
                 }
             }
             else
             {
+                Console.WriteLine();
+                Console.Write("Client tried to enter ------ ");
                 Console.WriteLine("No room in the parking house for current client." );
             }                  
         }
-
+        /// <summary>
+        /// Removes customer from parking house. 
+        /// </summary>
         public void RemoveCustomers()
         {            
             var rand = new Random();
             var randCustomerNumber = rand.Next(ClientList.Count);
-            var customer = ClientList.Skip(randCustomerNumber - 1).FirstOrDefault();            
+            var customer = ClientList.Skip(randCustomerNumber - 1).FirstOrDefault();  // Takes random customer from client list.        
             customer.DepartureTime = DateTime.Now;
             var removeFromParking = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == customer.ClientId);
             if (removeFromParking != null)
-                removeFromParking.ClientId = null;
+                removeFromParking.ClientId = null; // Removes client reference from parking space.
+            // Method for creating check for customer and statistics.
             _servicePay.AddCheck(customer, _statistics);
-            ClientList.Remove(customer);
+            ClientList.Remove(customer); // Remove client from client list.
         }
 
     }

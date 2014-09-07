@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Main.Vehicles
 {
+    /// <summary>
+    /// Car entity.
+    /// </summary>
     public class Car
     {
         public decimal CarLength { get; set; }

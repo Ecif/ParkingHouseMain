@@ -9,12 +9,20 @@ using Entities.Main.ParkingHouse;
 
 namespace Data.Bussiness
 {
+    /// <summary>
+    /// Services for calculation and statistics.
+    /// </summary>
     public class ServicePayment
     {
         private const double HourlyFee = 2.0;
         private const double ContractFee = 10.0;
 
-        // 1s = 1h
+        /// <summary>
+        /// Creates check for each client and 
+        /// adds up premium customer's sum and regular customer's sum.
+        /// </summary>
+        /// <param name="customer">Customer to take into account.</param>
+        /// <param name="statistics">Statistics for sum and client count.</param>
         public void AddCheck(Client customer, Dictionary<string, double> statistics)
         {
             var sum = CreateCheck(customer);
@@ -24,7 +32,14 @@ namespace Data.Bussiness
                 statistics["regularSum"] += sum;
             statistics["clientsCount"] ++;
         }
-
+        /// <summary>
+        /// Shows parking info and returns sum for parking.
+        /// </summary>
+        /// <param name="customer">Customer to take into account.</param>
+        /// <param name="showLeaveText">Bool for showing text. 
+        /// If simulation ends before everyone exits, then it's not 
+        /// good to show everyone's cheks when they check out.</param>
+        /// <returns>Returns Sum for parking.</returns>
         private double CreateCheck(Client customer, bool showLeaveText = true)
         {
             
@@ -42,7 +57,12 @@ namespace Data.Bussiness
             }                
             return fee;
         }
-
+        /// <summary>
+        /// Returns sum of clients, who are still in parking house when simulation time ends.
+        /// </summary>
+        /// <param name="clients">List of clients, who are still in parking house after simulation end.</param>
+        /// <param name="parkingSpaces">List of parking spaces</param>
+        /// <returns>Returns sum for parking of those, who were left in parking house after simulation time runs out.</returns>
         public double CalculateRemainingSum(List<Client> clients, List<ParkingSpace> parkingSpaces)
         {
             var sum = 0.0;
