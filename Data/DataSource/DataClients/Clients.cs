@@ -7,6 +7,7 @@ using Data.Bussiness;
 using Data.DataSource.DataParkingHouse;
 using Data.DataSource.DataVehicles;
 using Entities.Main.Clients;
+using Entities.Main.Vehicles;
 
 namespace Data.DataSource.DataClients
 {
@@ -17,7 +18,7 @@ namespace Data.DataSource.DataClients
     public class Clients
     {
 
-        public List<Client> ClientList { get; set; }
+        public IList<Client> ClientList { get; set; }
         private readonly Dictionary<string, double> _statistics = new Dictionary<string, double>();
         private bool IsFirstCall {get; set; }
         private readonly ServiceRestrictions _service;
@@ -63,7 +64,7 @@ namespace Data.DataSource.DataClients
                     {
                         var parkingSpace = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == null);
                         if (parkingSpace != null)
-                            parkingSpace.ClientId = client.ClientId;
+                            parkingSpace.ClientId = client.Id;
                     }
                     IsFirstCall = false;
                 }
@@ -75,10 +76,10 @@ namespace Data.DataSource.DataClients
                     var vehicleId = rand.Next(1, Cars.CarsList.Count+1);
                     var newClient = new Client
                     {
-                        ClientId = count + 1,
+                        Id = count + 1,
                         EntryTime = DateTime.Now,
                         HasContract = count%10 == 0,
-                        VehicleId = vehicleId,
+                        Vehicle = new Car {Id = vehicleId},
                         DepartureTime = null
                     };
                     if (_service.CheckCarSize(newClient)) // Checks whether car fits into parking house.
@@ -113,7 +114,7 @@ namespace Data.DataSource.DataClients
             var randCustomerNumber = rand.Next(ClientList.Count);
             var customer = ClientList.Skip(randCustomerNumber - 1).FirstOrDefault();  // Takes random customer from client list.        
             customer.DepartureTime = DateTime.Now;
-            var removeFromParking = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == customer.ClientId);
+            var removeFromParking = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == customer.Id);
             if (removeFromParking != null)
                 removeFromParking.ClientId = null; // Removes client reference from parking space.
             // Method for creating check for customer and statistics.

@@ -29,12 +29,12 @@ namespace DAO.Concrete
         /// </summary>
         public void CreateClientsList()
         {
-            for (int i = 0; i < 400; i++)
+            for (var i = 0; i < 400; i++)
             {
                 _clients.ClientList.Add(
                     new Client
                     {
-                        ClientId = i,
+                        Id = i,
                         EntryTime = DateTime.Now,
                         HasContract = i % 10 == 0 ,
                         DepartureTime = null
@@ -49,7 +49,7 @@ namespace DAO.Concrete
         private void CreateCarsList()
         {
             _cars = Cars.CarsList;
-            for (int i = 1; i <= 3; i++)
+            for (var i = 1; i <= 3; i++)
                 {
                     _cars.Add(
                         new Car
@@ -68,14 +68,14 @@ namespace DAO.Concrete
             
             if (_cars != null && _clients != null)
             {
-                foreach (Client client in _clients.ClientList)
+                foreach (var client in _clients.ClientList)
                 {
-                    if (client.ClientId == 100)
-                        client.VehicleId = 2;
-                    else if (client.ClientId == 200 || client.ClientId == 300)
-                        client.VehicleId = 3;
+                    if (client.Id == 100)
+                        client.Vehicle = new Car {Id = 2};
+                    else if (client.Id == 200 || client.Id == 300)
+                        client.Vehicle = new Car {Id = 3};
                     else
-                        client.VehicleId = 1;
+                        client.Vehicle = new Car { Id = 1 }; 
                 }
             }
         }

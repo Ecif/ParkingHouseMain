@@ -30,9 +30,7 @@ namespace DAO.Concrete
         private void CreateParkingSpots()
         {
             const int parkingSpots = 500;
-            const float premiumPerCentage = 0.1f;
-            const int premiumSpots = (int) (parkingSpots*premiumPerCentage);
-            for (int i = 0; i < parkingSpots; i++)
+            for (var i = 0; i < parkingSpots; i++)
             {
                 _parkingSpaces.ParkingSpacesList.Add(
                     new ParkingSpace

@@ -18,7 +18,7 @@ namespace Data.Bussiness
     {
         private const bool HasRightToEnter = true;
 
-        private List<Client> _clientsList;
+        private IList<Client> _clientsList;
         private List<ParkingSpace> _parkingSpaces;
         private ParkingHouse _parkingHouse;
         /// <summary>
@@ -51,20 +51,20 @@ namespace Data.Bussiness
         /// <param name="newClient">New client</param>
         /// <param name="toPremiumSpot">Is it possible to park to premium reserved parking space?</param>
         public void AddClient(Client newClient, bool toPremiumSpot = false)
-        {
+        {            
             _clientsList.Add(newClient);
             if (toPremiumSpot)
             {
                 var firstOrDefault = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == null && x.IsPremium);
                 if (firstOrDefault != null)
-                    firstOrDefault.ClientId = newClient.ClientId;
+                    firstOrDefault.ClientId = newClient.Id;
             }
             else
             {
                 var firstFreeSpot = ParkingLot.ParkingHouse.ParkingSpaces.FirstOrDefault(x => x.ClientId == null && !x.IsPremium);
                 if (firstFreeSpot != null)
                 {
-                    firstFreeSpot.ClientId = newClient.ClientId;
+                    firstFreeSpot.ClientId = newClient.Id;
                 }
             }
             Console.WriteLine();
@@ -79,10 +79,10 @@ namespace Data.Bussiness
         /// <returns>Is it possible to park?</returns>
         public bool CheckCarSize(Client newClient)
         {
-            var vehicleId = newClient.VehicleId;
+            var vehicle = newClient.Vehicle;
             var carsList = Cars.CarsList;
-            var carType = carsList.FirstOrDefault(x => x.Id == vehicleId);
-            return _parkingSpaces.Any(parkingSpace => carType.CarLength <= parkingSpace.Length && carType.CarWidth <= parkingSpace.Width);
+            var carType = carsList.FirstOrDefault(x => x.Id == vehicle.Id); 
+            return _parkingSpaces.Any(parkingSpace => carType != null && (carType.CarLength <= parkingSpace.Length && carType.CarWidth <= parkingSpace.Width));
         }
     }
 }

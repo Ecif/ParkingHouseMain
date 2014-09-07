@@ -1,0 +1,13 @@
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\DataTests.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\DataTests.pdb
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Data.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Entities.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\nunit.framework.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Data.pdb
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Entities.pdb
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\nunit.framework.xml
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\obj\Debug\DataTests.csprojResolveAssemblyReference.cache
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\obj\Debug\DataTests.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\obj\Debug\DataTests.pdb
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Moq.dll
+C:\Users\Ardi\Documents\Visual Studio 2013\Projects\FinestMedia\ParkingHouseMain\DataTests\bin\Debug\Moq.xml

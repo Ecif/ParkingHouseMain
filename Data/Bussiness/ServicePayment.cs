@@ -63,19 +63,18 @@ namespace Data.Bussiness
         /// <param name="clients">List of clients, who are still in parking house after simulation end.</param>
         /// <param name="parkingSpaces">List of parking spaces</param>
         /// <returns>Returns sum for parking of those, who were left in parking house after simulation time runs out.</returns>
-        public double CalculateRemainingSum(List<Client> clients, List<ParkingSpace> parkingSpaces)
+        public double CalculateRemainingSum(IList<Client> clients, List<ParkingSpace> parkingSpaces)
         {
             var sum = 0.0;
             foreach (var parkingSpace in parkingSpaces)
             {
                 var customer = clients.FirstOrDefault(
-                    client => client.ClientId == parkingSpace.ClientId && parkingSpace.ClientId != null);
+                    client => client.Id == parkingSpace.ClientId && parkingSpace.ClientId != null);
                 if (customer != null)
                 {
                     customer.DepartureTime = DateTime.Now;
                     sum += CreateCheck(customer, false);
-                }
-                    
+                }                    
             }
             return sum;
         }

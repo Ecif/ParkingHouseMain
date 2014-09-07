@@ -1,4 +1,5 @@
 ﻿using System;
+using Entities.Main.Vehicles;
 
 namespace Entities.Main.Clients
 {
@@ -7,8 +8,9 @@ namespace Entities.Main.Clients
     /// </summary>
     public class Client
     {
-        public int ClientId { get; set; }
-        public int VehicleId { get; set; }
+        public int Id { get; set; }
+        //public int VehicleId { get; set; }  // parem, kui see oleks Vehicle obj ?hmmh
+        public Car Vehicle { get; set; }  // parem, kui see oleks Vehicle obj ?hmmh
         public bool HasContract { get; set; }
         public DateTime EntryTime { get; set; }
         public DateTime? DepartureTime { get; set; }
